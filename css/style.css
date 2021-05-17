@@ -5,15 +5,15 @@
 }
 /* Custom properties */
 :root {
-    --ff-primary: 'Source Sans Pro', sans-serif;
-    --ff-secondary: 'Source Sans Pro', monospace;
-    --fw-reg: 300;
-    --fw-bold: 900;
+    --ff-primary: 'Lora', serif;
+    --ff-secondary: 'Roboto Slab', serif;
+    --fw-reg: 400;
+    --fw-bold: 700;
 
     --clr-light: #FFF;
     --clr-dark: #303030;
     /* --clr-accent: #D1DDD1; */
-    --clr-accent: #16E0BD;
+    --clr-accent:#16E0BD;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -33,6 +33,9 @@
 }
 
 /* General styles */
+html {
+    scroll-behavior: smooth;
+}
 body {
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -148,6 +151,55 @@ header {
 .nav__link:hover {
     color: var(--clr-accent);
 }
+.nav-toggle {
+    padding: 0.5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+.nav-open .nav {
+    transform: translateX(0);
+}
+.nav-open .nav-toggle {
+    position: fixed;
+}
+.nav-open .hamburger {
+    transform: rotate(0.625turn);
+}
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+.hamburger {
+    display: block;
+    position: relative;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
+
+
 /* Intro section */
 .intro {
     position: relative;
@@ -331,4 +383,16 @@ header {
 }
 .social-list__link {
     padding: 0.5em;
+}
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
